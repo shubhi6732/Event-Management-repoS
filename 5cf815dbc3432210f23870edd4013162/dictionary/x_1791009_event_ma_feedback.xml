@@ -9,6 +9,7 @@
             </choice>
         </element>
         <element attributes="encode_utf8=false" label="Event ID" max_length="32" name="event_id" reference="x_1791009_event_ma_event_record" type="reference"/>
+        <element label="Feedback Received" max_length="40" name="feedback_received" type="boolean"/>
         <element attributes="edge_encryption_enabled=true" label="Feedback ID" max_length="40" name="feedback_id" type="string"/>
         <element attributes="encode_utf8=false" label="Attendee ID" max_length="32" name="attendee_id" reference="x_1791009_event_ma_attendee" type="reference"/>
     </element>

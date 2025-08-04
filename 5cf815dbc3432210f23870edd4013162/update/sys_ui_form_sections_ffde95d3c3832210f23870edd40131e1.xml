@@ -42,6 +42,20 @@
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2025-08-04 09:57:24</sys_updated_on>
         </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-08-04 10:55:33</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ac56b553c3072210f23870edd4013162</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1791009_event_ma_event_record" name="x_1791009_event_ma_event_record" sys_domain="global" view="Default view">ffde95d3c3832210f23870edd40131e1</sys_ui_form>
+            <sys_ui_section caption="Activity/Notes:" display_value="Activity/Notes:" name="x_1791009_event_ma_event_record" sys_domain="global" view="Default view">1856b553c3072210f23870edd4013121</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-08-04 10:55:33</sys_updated_on>
+        </sys_ui_form_section>
         <sys_ui_form action="INSERT_OR_UPDATE">
             <name>x_1791009_event_ma_event_record</name>
             <roles/>
