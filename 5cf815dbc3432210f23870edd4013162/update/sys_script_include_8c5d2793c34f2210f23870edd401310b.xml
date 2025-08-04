@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1791009_event_ma.VendorUtils </api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>VendorUtils </name>
+        <script><![CDATA[var VendorUtils = Class.create();
+VendorUtils.prototype = {
+  initialize: function() {},
+
+  // 1. Fetch vendor details by vendor sys_id
+  getVendorDetails: function(vendorId) {
+    var gr = new GlideRecord('x_1791009_event_ma_vendor');
+    if (gr.get(vendorId)) {
+      return {
+        name: gr.getValue('vendor_name'),
+        contact: gr.getValue('contact_number'),
+        service_type: gr.getValue('email'),
+        is_available: gr.getValue('is_vendor_available')
+      };
+    }
+    return null;
+  },
+
+  // 2. Check if vendor is available (assumes boolean field `u_is_available`)
+  isVendorAvailable: function(vendorId) {
+    var gr = new GlideRecord('x_1791009_event_ma_vendor');
+    if (gr.get(vendorId)) {
+      return gr.getValue('is_vendor_available') == 'true';
+    }
+    return false;
+  },
+
+  // 3. Fetch vendors by event ID (if `u_event` reference field exists)
+  getVendorsByEvent: function(eventId) {
+    var list = [];
+    var gr = new GlideRecord('x_1791009_event_ma_vendor');
+    gr.addQuery('event_id', eventId); // assumes u_event is a reference to event_record
+    gr.query();
+
+    while (gr.next()) {
+      list.push({
+        name: gr.getValue('vendor_name'),
+        service_type: gr.getValue('contact_person'),
+        contact: gr.getValue('contact_number'),
+        is_available: gr.getValue('is_vendor_available')
+      });
+    }
+
+    return list;
+  },
+
+  type: 'VendorUtils'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 19:35:34</sys_created_on>
+        <sys_id>8c5d2793c34f2210f23870edd401310b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>VendorUtils </sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sys_script_include_8c5d2793c34f2210f23870edd401310b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 19:40:39</sys_updated_on>
+    </sys_script_include>
+</record_update>

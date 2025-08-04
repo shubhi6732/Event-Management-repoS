@@ -2,10 +2,10 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="event_date" table="x_1791009_event_ma_event_record">
         <active>true</active>
         <array>false</array>
-        <attributes>edge_encryption_enabled=true</attributes>
+        <attributes>edge_encryption_enabled=true, audit=true</attributes>
         <audit>false</audit>
         <calculation/>
-        <choice>0</choice>
+        <choice/>
         <choice_field/>
         <choice_table/>
         <column_label>Event Date</column_label>
@@ -53,7 +53,7 @@
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sys_dictionary_x_1791009_event_ma_event_record_event_date</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 09:13:07</sys_updated_on>
+        <sys_updated_on>2025-08-04 19:02:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
