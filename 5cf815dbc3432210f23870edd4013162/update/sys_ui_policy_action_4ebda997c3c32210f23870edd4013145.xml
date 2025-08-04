@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>services_provided</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 10:18:11</sys_created_on>
+        <sys_id>4ebda997c3c32210f23870edd4013145</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>services_provided</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sys_ui_policy_action_4ebda997c3c32210f23870edd4013145</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 10:18:11</sys_updated_on>
+        <table>x_1791009_event_ma_vendor</table>
+        <ui_policy display_value=" to hide the services_provided field when the vendor_name is  empty in the Vendor form. ">da9de597c3c32210f23870edd4013163</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>false</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=4ebda997c3c32210f23870edd4013145"/>
+</record_update>
