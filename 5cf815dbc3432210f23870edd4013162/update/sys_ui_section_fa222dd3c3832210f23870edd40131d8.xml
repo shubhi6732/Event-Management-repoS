@@ -4,13 +4,13 @@
             <element>vendor_id</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>1cf2a51bc3832210f23870edd401311d</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>04cde357c34f2210f23870edd40131fd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>vendor_name</element>
             <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>90f2a51bc3832210f23870edd401311e</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>cccde357c34f2210f23870edd40131fd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>contact_person</element>
             <position>2</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>18f2a51bc3832210f23870edd401311e</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>54cde357c34f2210f23870edd40131fe</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,13 +46,13 @@
             <element>contact_number</element>
             <position>3</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>9cf2a51bc3832210f23870edd401311e</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>d8cde357c34f2210f23870edd40131fe</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -60,13 +60,13 @@
             <element>email</element>
             <position>4</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>14f2a51bc3832210f23870edd401311f</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>50cde357c34f2210f23870edd40131ff</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -74,13 +74,27 @@
             <element>services_provided</element>
             <position>5</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-08-04 09:30:54</sys_created_on>
-            <sys_id>98f2a51bc3832210f23870edd401311f</sys_id>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>d4cde357c34f2210f23870edd40131ff</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-08-04 09:30:54</sys_updated_on>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>is_vendor_available</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-08-04 19:37:22</sys_created_on>
+            <sys_id>5ccde357c34f2210f23870edd40131ff</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Vendor Information:" display_value="Vendor Information:" name="x_1791009_event_ma_vendor" sys_domain="global" view="Default view">fa222dd3c3832210f23870edd40131d8</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-08-04 19:37:22</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

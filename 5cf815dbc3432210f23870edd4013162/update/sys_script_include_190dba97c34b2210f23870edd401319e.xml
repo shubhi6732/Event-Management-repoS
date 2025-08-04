@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1791009_event_ma.TaskEventUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>TaskEventUtils</name>
+        <script><![CDATA[var TaskEventUtils = Class.create();
+TaskEventUtils.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+  
+  getEventDetails: function() {
+    var eventId = this.getParameter('sysparm_event_id');
+    if (!eventId) {
+      return JSON.stringify({ error: true, message: 'No event ID provided' });
+    }
+
+    var gr = new GlideRecord('event_record');
+    if (!gr.get(eventId)) {
+      return JSON.stringify({ error: true, message: 'Event not found' });
+    }
+
+    return JSON.stringify({
+      name: gr.getValue('event_name'),
+      start: gr.getValue('start_date'),
+      location: gr.getValue('location')
+    });
+  },
+
+  type: 'TaskEventUtils'
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-04 16:21:50</sys_created_on>
+        <sys_id>190dba97c34b2210f23870edd401319e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TaskEventUtils</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sys_script_include_190dba97c34b2210f23870edd401319e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-04 16:21:50</sys_updated_on>
+    </sys_script_include>
+</record_update>
