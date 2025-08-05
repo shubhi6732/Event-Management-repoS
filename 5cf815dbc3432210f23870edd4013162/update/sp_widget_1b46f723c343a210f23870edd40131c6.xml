@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {
-  /* widget controller */
+        <client_script><![CDATA[function($scope, $http, spModal) {
   var c = this;
-};]]></client_script>
+ 
+  c.approveVenue = function(sys_id) {
+    spModal.open({
+      title: 'Approve Venue Bookings',
+      message: 'Do you want to open this venue booking record?',
+      buttons: [
+        { label: 'Approve', primary: true },
+        { label: 'Deny' }
+      ]
+    }).then(function(result) {
+      if (result.button.label === 'Approve') {
+        window.location.href = '/x_1791009_event_ma_venue.do?sys_id=' + sys_id;
+      }
+    });
+  };
+ 
+  c.denyVenue = function(sys_id) {
+    if (!confirm("Are you sure you want to deny this booking?")) return;
+ 
+    $http.delete('/api/now/table/x_1791009_event_ma_feedback/' + sys_id)
+      .then(function(response) {
+        alert('Venue Booking Denied.');
+        $scope.server.get(); // Refresh the widget
+      }, function(error) {
+        alert('Failed to deny booking.');
+      });
+  };
+}]]></client_script>
         <controller_as>c</controller_as>
         <css>.table-responsive, .table {&#13;
   width: 100% !important;&#13;
@@ -26,54 +52,67 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-    var utils = new VenueUtils();
-    var raw = utils.fetchAllVenues();
 
-    try {
-        data.venues = JSON.parse(raw);
-    } catch (e) {
-        data.venues = [];
-    }
+  data.venueList = [];
+ 
+  var gr = new GlideRecord('x_1791009_event_ma_venue'); // Replace with your table name
+
+  gr.orderByDesc('sys_created_on');
+
+  gr.query();
+ 
+  while (gr.next()) {
+
+    data.venueList.push({
+
+      sys_id: gr.getUniqueValue(),
+
+      location: gr.getValue('location'),
+
+      contact_person: gr.getValue('contact_person'),
+
+      capacity: gr.getDisplayValue('capacity'),
+
+      venue_name: gr.getDisplayValue('venue_name'),
+
+      created: gr.getDisplayValue('sys_created_on')
+
+    });
+
+  }
+
 })();
-]]></script>
+
+ ]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-05 14:54:03</sys_created_on>
         <sys_id>1b46f723c343a210f23870edd40131c6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Venues Dashboard Widget</sys_name>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
         <sys_policy/>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sp_widget_1b46f723c343a210f23870edd40131c6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-05 14:54:03</sys_updated_on>
-        <template><![CDATA[<div class="panel panel-default">
-  <div class="panel-heading"><h3 class="panel-title">All Venues</h3></div>
-  <div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Venue ID</th>
-          <th>Venue Name</th>
-          <th>Address</th>
-          <th>Capacity</th>
-          <th>Contact Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="venue in c.data.venues">
-          <td>{{venue.number}}</td>
-          <td>{{venue.venue_name}}</td>
-          <td>{{venue.address}}</td>
-          <td>{{venue.capacity}}</td>
-          <td>{{venue.contact_number}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <sys_updated_on>2025-08-05 18:34:25</sys_updated_on>
+        <template><![CDATA[<h2>]]>📝<![CDATA[ Venue Bookings</h2>
+ 
+<div ng-if="data.venueList.length == 0">
+<p>No BOOKINGS yet.</p>
 </div>
-]]></template>
+ 
+<div ng-repeat="item in data.venueList" class="card" style="margin:10px; padding:15px; border:1px solid #ccc;">
+<p><strong>Venue:</strong> {{ item.venue }}</p>
+<p><strong>Event:</strong> {{ item.event }}</p>
+<p><strong>Venue Name:</strong> {{ item.venue_name }}</p>
+<p><strong>Location:</strong> {{ item.location }}</p>
+<p><strong>Contact Person:</strong> {{ item.contact_person }}</p>
+<p><em>Submitted on {{ item.created }}</em></p>
+ 
+  <button class="btn btn-primary btn-sm" ng-click="c.approveVenue(item.sys_id)">Approve</button>
+<button class="btn btn-danger btn-sm" ng-click="c.denyVenue(item.sys_id)">Deny</button>
+</div>]]></template>
     </sp_widget>
 </record_update>
