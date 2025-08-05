@@ -9,7 +9,61 @@
         <name>AttendeeUtils</name>
         <script><![CDATA[var AttendeeUtils = Class.create();
 AttendeeUtils.prototype = {
-    initialize: function() {
+    initialize: function(eventid) {
+        this.eventid = eventid;
+    },
+
+    fetchAllAttendees: function() {
+        var res = [];
+        var gr = new GlideRecord('x_1791009_event_ma_attendee'); // Use your attendee table name
+        gr.query();
+        while (gr.next()) {
+            res.push({
+                number: gr.getValue('number'),
+                first_name: gr.getValue('first_name'),
+                last_name: gr.getValue('last_name'),
+                email: gr.getValue('email'),
+                status: gr.getDisplayValue('status')
+            });
+        }
+        return JSON.stringify(res);
+    },
+
+    //isRegistered: function() {
+     //   var attendee = new GlideRecord('x_1791009_event_ma_attendee');
+      //  attendee.addQuery('event_id.number', this.eventid);
+       // attendee.query();
+       // return attendee.hasNext();
+   // },
+    getAttendee: function(id) {
+        var res = [];
+        var attendee = new GlideRecord('x_1791009_event_ma_attendee');
+        attendee.addQuery('number', id);
+        attendee.query();
+        if (attendee.next()) {
+            res.push({
+                id: attendee.getDisplayValue(),
+                firstname: attendee.getValue('first_name'),
+                lastname: attendee.getValue('last_name')
+            });
+        }
+        return JSON.stringify(res);
+
+    },
+    getEventAttendee: function() {
+        var res = [];
+        var attendee = new GlideRecord('x_1791009_event_ma_attendee');
+        attendee.addQuery('event_id.number', this.eventid);
+        attendee.query();
+        if (attendee.next()) {
+            res.push({
+                id: attendee.getDisplayValue(),
+                firstname: attendee.getValue('first_name'),
+                lastname: attendee.getValue('last_name')
+            });
+        }
+        return JSON.stringify(res);
+
     },
 
     type: 'AttendeeUtils'
@@ -18,13 +72,13 @@ AttendeeUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 19:34:25</sys_created_on>
         <sys_id>de0d6f93c34f2210f23870edd40131d6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>AttendeeUtils</sys_name>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sys_script_include_de0d6f93c34f2210f23870edd40131d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 19:34:25</sys_updated_on>
+        <sys_updated_on>2025-08-05 16:23:55</sys_updated_on>
     </sys_script_include>
 </record_update>

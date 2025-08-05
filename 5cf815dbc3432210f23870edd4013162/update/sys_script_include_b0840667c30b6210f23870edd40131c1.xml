@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1791009_event_ma.EventUtilsClient</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>EventUtilsClient</name>
+        <script><![CDATA[var EventUtilsClient = Class.create();
+EventUtilsClient.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getDetails:function()
+	{    id = this.getParameter('sysparm_sysid');
+	var res = [];
+		var event = new GlideRecord('x_1791009_event_ma_event_record');
+		event.addQuery('event_id',id);
+		event.query();
+		while(event.next())
+        {
+			res.push({
+				name : event.getValue('event_name'),
+				date: event.getValue('event_date'),
+				location:event.getValue('location'),
+			});
+		}
+      return JSON.stringify(res);
+	},
+	isVIP:function(){
+      id = this.getParameter('sysparm_sysid');
+		var event = new GlideRecord('x_1791009_event_ma_event_record');
+		event.addQuery('event_id',id);
+		event.query();
+		if(event.next())
+		{
+			if(event.vip)
+			return true;
+		}
+		return false;
+	},
+
+    type: 'EventUtilsClient'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 06:38:45</sys_created_on>
+        <sys_id>b0840667c30b6210f23870edd40131c1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>EventUtilsClient</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sys_script_include_b0840667c30b6210f23870edd40131c1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 06:38:45</sys_updated_on>
+    </sys_script_include>
+</record_update>

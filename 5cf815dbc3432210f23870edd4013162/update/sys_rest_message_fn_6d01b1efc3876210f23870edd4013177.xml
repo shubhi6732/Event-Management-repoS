@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <content>{&#13;
+"event_name": "${event_name}",&#13;
+"event_date":"${event_date}",&#13;
+"location":"${location}"&#13;
+}</content>
+        <function_name>Send Message</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>Event R Message [ Send Message ]</qualified_name>
+        <rest_endpoint>https://webhook.site/1bc3bdb3-d2b6-440f-ba30-97740e06657e</rest_endpoint>
+        <rest_message display_value="Event R Message">c58039afc3876210f23870edd4013103</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 05:11:22</sys_created_on>
+        <sys_id>6d01b1efc3876210f23870edd4013177</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Send Message</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sys_rest_message_fn_6d01b1efc3876210f23870edd4013177</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 05:20:54</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+</record_update>

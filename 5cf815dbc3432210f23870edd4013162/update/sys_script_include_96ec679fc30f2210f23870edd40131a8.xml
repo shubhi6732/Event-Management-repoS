@@ -9,7 +9,75 @@
         <name>TaskUtils</name>
         <script><![CDATA[var TaskUtils = Class.create();
 TaskUtils.prototype = {
-    initialize: function() {
+    initialize: function(eventid) {
+        this.eventid = eventid;
+    },
+
+    fetchAllTasks: function() {
+        var res = [];
+        var gr = new GlideRecord('x_1791009_event_ma_event_task'); // Use your actual task table name
+        gr.query();
+        while (gr.next()) {
+            res.push({
+                number: gr.getValue('number'),
+                task_name: gr.getValue('task_name'),
+                state: gr.getDisplayValue('status'), // shows display value (e.g., Open/In Progress)
+                due_date: gr.getValue('due_date')
+            });
+        }
+        return JSON.stringify(res);
+    },
+
+    getTasks: function() {
+        var res = [];
+        var eventtask = new GlideRecord('x_1791009_event_ma_event_task');
+        eventtask.addQuery('event_id.number', this.eventid);
+        eventtask.query();
+        if (eventtask.next()) {
+            res.push({
+                id: eventtask.getDisplayValue()
+            });
+        }
+        return JSON.stringify(res);
+
+    },
+    Overdue: function(taskid) {
+
+        var curr = new GlideDateTime();
+        var eventtask = new GlideRecord('x_1791009_event_ma_event_task');
+        eventtask.addQuery('number', taskid);
+        eventtask.query();
+        if (eventtask.next()) {
+            if (eventtask.getValue('due_date') > curr)
+                return "OverDue";
+        }
+        return 'Due';
+    },
+    getTaskById: function(taskid) {
+        var res = [];
+        var eventtask = new GlideRecord('x_1791009_event_ma_event_task');
+        eventtask.addQuery('number', taskid);
+        eventtask.query();
+        if (eventtask.next()) {
+            res.push({
+                id: eventtask.getDisplayValue(),
+                name: eventtask.getValue('task_name')
+            });
+        }
+        return JSON.stringify(res);
+    },
+    getTaskByDate: function(duedate) {
+        var res = [];
+        var eventtask = new GlideRecord('x_1791009_event_ma_event_task');
+        eventtask.addQuery('due_date', duedate);
+        eventtask.query();
+        if (eventtask.next()) {
+            res.push({
+                id: eventtask.getDisplayValue(),
+                name: eventtask.getValue('task_name')
+            });
+        }
+        return JSON.stringify(res);
     },
 
     type: 'TaskUtils'
@@ -18,13 +86,13 @@ TaskUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 19:34:00</sys_created_on>
         <sys_id>96ec679fc30f2210f23870edd40131a8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>TaskUtils</sys_name>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sys_script_include_96ec679fc30f2210f23870edd40131a8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 19:34:00</sys_updated_on>
+        <sys_updated_on>2025-08-05 14:36:55</sys_updated_on>
     </sys_script_include>
 </record_update>
