@@ -9,7 +9,68 @@
         <name>BudgetUtils</name>
         <script><![CDATA[var BudgetUtils = Class.create();
 BudgetUtils.prototype = {
-    initialize: function() {
+    initialize: function() {},
+
+    fetchAllBudgets: function() {
+        var res = [];
+        var gr = new GlideRecord('x_1791009_event_ma_budget'); // Use your actual budget table name
+        gr.query();
+        while (gr.next()) {
+            res.push({
+                number: gr.getValue('number'),
+                total_budget: gr.getValue('total_budget'),
+                amount_spent: gr.getValue('amount_spent'),
+                amount_remaining: gr.getValue('amount_remaining'),
+                status: gr.getDisplayValue('status')
+            });
+        }
+        return JSON.stringify(res);
+    },
+
+    TotalBudget: function(id) {
+        var event = new GlideRecord('x_1791009_event_ma_budget');
+        event.addQuery('number', id);
+        event.query();
+        while (event.next()) {
+            event.total_budget = event.getValue('total_budget');
+
+            event.update();
+        }
+    },
+    remainingBudget: function(id) {
+        var remaining = 0;
+        var event = new GlideRecord('x_1791009_event_ma_budget');
+        event.addQuery('number', id);
+        event.query();
+        if (event.next()) {
+            remaining = event.getValue('amount_remaining');
+        }
+        return remaining;
+    },
+    isApproved: function(id) {
+        var budget = new GlideRecord('x_1791009_event_ma_budget');
+        budget.addQuery('number', id);
+        budget.query();
+        while (budget.next()) {
+            if (budget.getValue('status') == 'approved') {
+                return 'Approved';
+            }
+        }
+        return false;
+    },
+    getEventBudget: function(eventid) {
+        var res = [];
+        var budget = new GlideRecord('x_1791009_event_ma_budget');
+        budget.addQuery('event_id.number', eventid);
+        budget.query();
+        if (budget.next()) {
+            res.push({
+                id: budget.getDisplayValue(),
+                totalBudget: budget.getValue('total_budget'),
+            });
+        }
+        return JSON.stringify(res);
+
     },
 
     type: 'BudgetUtils'
@@ -18,13 +79,13 @@ BudgetUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 19:35:04</sys_created_on>
         <sys_id>383d2b17c34f2210f23870edd40131fa</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>BudgetUtils</sys_name>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sys_script_include_383d2b17c34f2210f23870edd40131fa</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 19:35:04</sys_updated_on>
+        <sys_updated_on>2025-08-05 14:44:17</sys_updated_on>
     </sys_script_include>
 </record_update>

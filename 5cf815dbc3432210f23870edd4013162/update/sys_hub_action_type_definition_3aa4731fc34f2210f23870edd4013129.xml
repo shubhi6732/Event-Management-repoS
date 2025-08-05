@@ -17,7 +17,7 @@
         <flow_priority/>
         <ih_action>false</ih_action>
         <internal_name>calculateremainingbudget</internal_name>
-        <label_cache>[{"name":"{{action.event_id}}","label":"action➛Event Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[7027a522-bf44-4e2c-a31e-b6123d11eb95].info}}","label":"step➛Script step➛info","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
+        <label_cache>[{"name":"{{action.event_id}}","label":"action➛Event Id","type":"action","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{}},{"name":"{{step[7027a522-bf44-4e2c-a31e-b6123d11eb95].res}}","label":"step➛Script step➛res","type":"step","ref":"","reference_display":"","base_type":"string","parent_table_name":"","column_name":"","choices":null,"attributes":{"sourceUiUniqueId":"","sourceType":"","sourceId":""}}]</label_cache>
         <latest_snapshot/>
         <master_snapshot/>
         <name>CalculateRemainingBudget</name>
@@ -32,7 +32,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>3aa4731fc34f2210f23870edd4013129</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>CalculateRemainingBudget</sys_name>
         <sys_overrides/>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
@@ -40,7 +40,7 @@
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_3aa4731fc34f2210f23870edd4013129</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -88,6 +88,18 @@
         <value>{{step[7027a522-bf44-4e2c-a31e-b6123d11eb95].info}}</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>res</field>
+        <id>3aa4731fc34f2210f23870edd4013129</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 10:01:44</sys_created_on>
+        <sys_id>3d93fe63c30f6210f23870edd4013170</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
+        <table>var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129</table>
+        <value>{{step[7027a522-bf44-4e2c-a31e-b6123d11eb95].res}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>__action_status__</field>
         <id>3aa4731fc34f2210f23870edd4013129</id>
         <sys_created_by>admin</sys_created_by>
@@ -129,10 +141,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 20:09:43</sys_created_on>
         <sys_id>de25379fc34f2210f23870edd40131ad</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=de25379fc34f2210f23870edd40131ad"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -143,16 +155,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 20:09:44</sys_created_on>
         <sys_id>5e25379fc34f2210f23870edd40131c8</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <value>(function execute(inputs, outputs) {&#13;
-// ... code ...&#13;
-&#13;
-var utils = new BudgetUtils();&#13;
-var remaining = utils.getRemainingBudget(inputs.event_id);&#13;
-&#13;
-outputs.info = remaining;&#13;
+    var event = new BudgetUtils();&#13;
+    var res = event.remainingBudget(inputs.event_id);&#13;
+    outputs.res = res;  &#13;
 })(inputs, outputs);&#13;
 </value>
         <variable display_value="Script">71aa7f6647032200b4fad7527c9a719b</variable>
@@ -295,12 +304,12 @@ outputs.info = remaining;&#13;
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_step_ext_input>
-    <sys_hub_step_ext_output action="delete_multiple" query="model=de25379fc34f2210f23870edd40131ad^sys_idNOT IN5225379fc34f2210f23870edd40131c2"/>
+    <sys_hub_step_ext_output action="delete_multiple" query="model=de25379fc34f2210f23870edd40131ad^sys_idNOT INa593fe63c30f6210f23870edd401314e"/>
     <sys_hub_step_ext_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=f606dcd5-8f99-4e2c-9ca2-27dc2ebcee65</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=string,uiTypeLabel=String,uiUniqueId=87865edb-8a09-4bcd-b33a-d7230e16a325</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -324,7 +333,7 @@ outputs.info = remaining;&#13;
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>info</element>
+        <element>res</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
@@ -333,7 +342,7 @@ outputs.info = remaining;&#13;
         <help/>
         <hint/>
         <internal_type display_value="String">string</internal_type>
-        <label>info</label>
+        <label>res</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
         <model display_value="Script step">de25379fc34f2210f23870edd40131ad</model>
@@ -357,8 +366,8 @@ outputs.info = remaining;&#13;
         <staged>false</staged>
         <sys_class_name>sys_hub_step_ext_output</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-08-04 20:09:44</sys_created_on>
-        <sys_id>5225379fc34f2210f23870edd40131c2</sys_id>
+        <sys_created_on>2025-08-05 10:01:43</sys_created_on>
+        <sys_id>a593fe63c30f6210f23870edd401314e</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -366,7 +375,7 @@ outputs.info = remaining;&#13;
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:43</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -380,19 +389,19 @@ outputs.info = remaining;&#13;
         <xml_view>false</xml_view>
     </sys_hub_step_ext_output>
     <sys_hub_input_scripts action="delete_multiple" query="instance=de25379fc34f2210f23870edd40131ad"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_de25379fc34f2210f23870edd40131ad^sys_idNOT IN9e25379fc34f2210f23870edd40131c4"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_step_ext_output_de25379fc34f2210f23870edd40131ad^sys_idNOT INb193fe63c30f6210f23870edd4013151"/>
     <sys_documentation action="INSERT_OR_UPDATE">
-        <element>info</element>
+        <element>res</element>
         <help/>
         <hint/>
-        <label>info</label>
+        <label>res</label>
         <language>en</language>
         <name>var__m_sys_hub_step_ext_output_de25379fc34f2210f23870edd40131ad</name>
         <plural/>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-08-04 20:09:44</sys_created_on>
-        <sys_id>9e25379fc34f2210f23870edd40131c4</sys_id>
+        <sys_created_on>2025-08-05 10:01:44</sys_created_on>
+        <sys_id>b193fe63c30f6210f23870edd4013151</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
@@ -400,7 +409,7 @@ outputs.info = remaining;&#13;
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>
@@ -489,12 +498,12 @@ outputs.info = remaining;&#13;
         <xml_view>false</xml_view>
     </sys_hub_action_input>
     <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=4a25379fc34f2210f23870edd40131a8"/>
-    <sys_hub_action_output action="delete_multiple" query="model=3aa4731fc34f2210f23870edd4013129^sys_idNOT IN1a25379fc34f2210f23870edd40131d0,5225379fc34f2210f23870edd40131cc,9625379fc34f2210f23870edd40131d4"/>
+    <sys_hub_action_output action="delete_multiple" query="model=3aa4731fc34f2210f23870edd4013129^sys_idNOT IN3593fe63c30f6210f23870edd401315d,5225379fc34f2210f23870edd40131cc,9625379fc34f2210f23870edd40131d4"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=string,uiTypeLabel=String,uiUniqueId=32ad27f4-7c67-4f1a-a6bb-9e55eba82a93</attributes>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,pwd2droppable=true,uiType=string,uiTypeLabel=String,uiUniqueId=1daa9b41-b58b-4bbb-84e1-537f3994c2fc</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -518,7 +527,7 @@ outputs.info = remaining;&#13;
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>info</element>
+        <element>res</element>
         <element_prototype/>
         <element_reference>false</element_reference>
         <foreign_database/>
@@ -529,7 +538,7 @@ outputs.info = remaining;&#13;
         <hint/>
         <internal_link/>
         <internal_type display_value="String">string</internal_type>
-        <label>info</label>
+        <label>res</label>
         <mandatory>false</mandatory>
         <max_length>8000</max_length>
         <model display_value="CalculateRemainingBudget">3aa4731fc34f2210f23870edd4013129</model>
@@ -537,7 +546,7 @@ outputs.info = remaining;&#13;
         <model_table>sys_hub_action_type_definition</model_table>
         <name>var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129</name>
         <next_element/>
-        <order>2</order>
+        <order>1</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -553,8 +562,8 @@ outputs.info = remaining;&#13;
         <staged>false</staged>
         <sys_class_name>sys_hub_action_output</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-08-04 20:09:44</sys_created_on>
-        <sys_id>1a25379fc34f2210f23870edd40131d0</sys_id>
+        <sys_created_on>2025-08-05 10:01:44</sys_created_on>
+        <sys_id>3593fe63c30f6210f23870edd401315d</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package/>
@@ -562,7 +571,7 @@ outputs.info = remaining;&#13;
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -575,8 +584,8 @@ outputs.info = remaining;&#13;
         <write_roles/>
         <xml_view>false</xml_view>
     </sys_hub_action_output>
-    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=1a25379fc34f2210f23870edd40131d0"/>
-    <sys_hub_input_scripts action="delete_multiple" query="instance=1a25379fc34f2210f23870edd40131d0"/>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=3593fe63c30f6210f23870edd401315d"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=3593fe63c30f6210f23870edd401315d"/>
     <sys_hub_action_output action="INSERT_OR_UPDATE">
         <active>true</active>
         <array>false</array>
@@ -624,7 +633,7 @@ outputs.info = remaining;&#13;
         <model_table>sys_hub_action_type_definition</model_table>
         <name>var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129</name>
         <next_element/>
-        <order>1</order>
+        <order>2</order>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
@@ -642,14 +651,14 @@ outputs.info = remaining;&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 20:09:44</sys_created_on>
         <sys_id>5225379fc34f2210f23870edd40131cc</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -729,14 +738,14 @@ outputs.info = remaining;&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-08-04 20:09:44</sys_created_on>
         <sys_id>9625379fc34f2210f23870edd40131d4</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name/>
         <sys_package/>
         <sys_policy/>
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
@@ -788,19 +797,19 @@ outputs.info = remaining;&#13;
         <url_target/>
     </sys_documentation>
     <sys_choice action="delete_multiple" query="name=var__m_sys_hub_action_input_3aa4731fc34f2210f23870edd4013129"/>
-    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129^sys_idNOT IN5a25379fc34f2210f23870edd40131d3,d225379fc34f2210f23870edd40131d9,da25379fc34f2210f23870edd40131cf"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129^sys_idNOT IN7d93fe63c30f6210f23870edd4013160,d225379fc34f2210f23870edd40131d9,da25379fc34f2210f23870edd40131cf"/>
     <sys_documentation action="INSERT_OR_UPDATE">
-        <element>info</element>
+        <element>res</element>
         <help/>
         <hint/>
-        <label>info</label>
+        <label>res</label>
         <language>en</language>
         <name>var__m_sys_hub_action_output_3aa4731fc34f2210f23870edd4013129</name>
         <plural/>
         <sys_class_name>sys_documentation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-08-04 20:09:44</sys_created_on>
-        <sys_id>5a25379fc34f2210f23870edd40131d3</sys_id>
+        <sys_created_on>2025-08-05 10:01:44</sys_created_on>
+        <sys_id>7d93fe63c30f6210f23870edd4013160</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name/>
         <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
@@ -808,7 +817,7 @@ outputs.info = remaining;&#13;
         <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
         <sys_update_name/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-08-04 20:09:44</sys_updated_on>
+        <sys_updated_on>2025-08-05 10:01:44</sys_updated_on>
         <url/>
         <url_target/>
     </sys_documentation>

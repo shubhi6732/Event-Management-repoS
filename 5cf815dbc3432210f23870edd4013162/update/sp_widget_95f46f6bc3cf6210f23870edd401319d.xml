@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function($scope) {
+  var c = this;
+
+  c.loadEvents = function() {
+    c.events = angular.copy(c.data.events || []);
+  };
+
+  c.deleteEvent = function(eventNumber) {
+    if (confirm("Are you sure you want to cancel task " + eventNumber + "?")) {
+      c.server.update({ action: 'cancelTask', eventNumber: eventNumber }).then(function(response) {
+        if (response) {
+          alert("Task Cancelled successfully.");
+          c.refreshEvents();
+        } else {
+          alert("Failed to cancel event.");
+        }
+      });
+    }
+  };
+
+  c.openRescheduleModal = function(event) {
+    var newDate = prompt("Enter new event date (YYYY-MM-DD HH:mm:ss):", event.due_date);
+    if (newDate) {
+      c.server.update({ action: 'completedTask', eventNumber: event.number, newDate: newDate }).then(function(success) {
+        if (success) {
+          alert("Task Completed successfully.");
+          c.refreshEvents();
+        } else {
+          alert("Failed to reschedule event.");
+        }
+      });
+    }
+  };
+
+  c.refreshEvents = function() {
+    $scope.server.get().then(function(response) {
+      c.events = angular.copy(response.data.events || []);
+    });
+  };
+
+  c.loadEvents();
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.event-header-widget {&#13;
+  padding: 16px;&#13;
+  background: #f7fafc;&#13;
+  border-radius: 8px;&#13;
+  box-shadow: 0 1px 4px #ccc;&#13;
+  margin-bottom: 20px;&#13;
+}&#13;
+.event-header-widget h2 {&#13;
+  margin-top: 0;&#13;
+}&#13;
+.table-responsive, .table {&#13;
+  width: 100% !important;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>task_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Task Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+    var utils = new TaskUtils();
+    var raw = utils.fetchAllTasks();
+
+    try {
+        data.events = JSON.parse(raw);
+    } catch (e) {
+        data.events = [];
+    }
+
+    // Handle client update calls safely
+    if (typeof input !== "undefined" && input.action) {
+        if (input.action == 'cancelTask') {
+            gs.info("Cancel task: " + input.eventNumber);
+            data.result = cancelTask(input.eventNumber);
+        } else if (input.action == 'completedTask') {
+            gs.info("Complete task: " + input.eventNumber + " to: " + input.newDate);
+            data.result = completedTask(input.eventNumber, input.newDate);
+        }
+    }
+
+    // Function to delete event by event number
+    function cancelTask(eventNumber) {
+        var gr = new GlideRecord('x_1791009_event_ma_event_task');
+        gr.addQuery('number', eventNumber);
+        gr.query();
+        if (gr.next()) {
+            gr.deleteRecord();
+            return true;
+        }
+        return false;
+    }
+
+    // Function to reschedule event by event number and new date
+    function completedTask(eventNumber, newDate) {
+        var gr = new GlideRecord('x_1791009_event_ma_event_task');
+        gr.addQuery('number', eventNumber);
+        gr.query();
+        if (gr.next()) {
+            gr.setValue('due_date', newDate);
+            gr.update();
+            return true;
+        }
+        return false;
+    }
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 13:38:44</sys_created_on>
+        <sys_id>95f46f6bc3cf6210f23870edd401319d</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Task Widget</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sp_widget_95f46f6bc3cf6210f23870edd401319d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 15:59:05</sys_updated_on>
+        <template><![CDATA[<div class="table-responsive" style="width:100%;">
+  <table class="table table-striped table-bordered table-hover table-condensed" style="width:100%;">
+    <thead>
+      <tr>
+      <th>Task ID</th>
+      <th>Task Name</th>
+      <th>Due Date</th>
+      <th>Location</th>
+      <th>Assigned To</th>
+        <th>Actions</th> <!-- New column for buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in c.data.events">
+      <td>{{event.number}}</td>
+      <td>{{event.task_name}}</td>
+      <td>{{event.due_date}}</td>
+      <td>{{event.assigned_to}}</td>
+      <td>{{event.location}}</td>
+        <td>
+          <button class="btn btn-danger btn-xs" ng-click="c.deleteEvent(event.number)">Delete</button>
+          <button class="btn btn-primary btn-xs" ng-click="c.openRescheduleModal(event)">Reschedule</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">51259d6fc3076210f23870edd401311e</sp_column>
+        <sp_widget display_value="HTML">8679ef89cb21120000f8d856634c9c4f</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 03:09:14</sys_created_on>
+        <sys_id>9f25d16fc3076210f23870edd401316c</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sp_instance_9f25d16fc3076210f23870edd401316c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 03:15:17</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"html": {
+		"value": "<div class=\"event-dashboard\">\r\n<h2>]]>🎯<![CDATA[ Event Management Dashboard</h2>\r\n<div class=\"event-button-grid\"><a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=5a1d9a13c3c72210f23870edd4013113\">Create Event</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=68b1e217c3c72210f23870edd4013155\">Assign Task</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=791ff25bc34b2210f23870edd40131da\">Register Attendee</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=P1d72839fc34b2210f23870edd4013129\">Submit Feedback</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=cc764f93c38b2210f23870edd40131e1\">Request Venue Booking</a></div>\r\n</div>",
+		"displayValue": "<div class=\"event-dashboard\">\n<h2>]]>🎯<![CDATA[ Event Management Dashboard</h2>\n<div class=\"event-button-grid\"><a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=5a1d9a13c3c72210f23870edd4013113\">Create Event</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=68b1e217c3c72210f23870edd4013155\">Assign Task</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=791ff25bc34b2210f23870edd40131da\">Register Attendee</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=P1d72839fc34b2210f23870edd4013129\">Submit Feedback</a> <a class=\"event-button\" href=\"/sp?id=sc_cat_item&amp;sys_id=cc764f93c38b2210f23870edd40131e1\">Request Venue Booking</a></div>\n</div>"
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=9f25d16fc3076210f23870edd401316c"/>
+</record_update>

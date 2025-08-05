@@ -4,6 +4,14 @@
         <element label="Capacity" max_length="40" name="capacity" type="integer"/>
         <element attributes="edge_encryption_enabled=true" label="Venue ID" max_length="40" name="venue_id" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Contact Person" max_length="40" name="contact_person" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Approved" sequence="2" value="approved"/>
+                <element inactive_on_update="false" label="On Hold" sequence="1" value="on hold"/>
+                <element inactive_on_update="false" label="Reject" sequence="3" value="reject"/>
+                <element inactive_on_update="false" label="New" sequence="0" value="new"/>
+            </choice>
+        </element>
         <element attributes="edge_encryption_enabled=true" label="Venue Name" max_length="40" name="venue_name" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Contact Number" max_length="40" name="contact_number" type="string"/>
     </element>

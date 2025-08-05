@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>EMP homepage - Container 2</name>
+        <order>2</order>
+        <semantic_tag/>
+        <sp_page display_value="emp_homepage">8e540f67c34f6210f23870edd401315a</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 12:22:06</sys_created_on>
+        <sys_id>71b353e7c38f6210f23870edd40131bb</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>EMP homepage - Container 2</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sp_container_71b353e7c38f6210f23870edd40131bb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 12:22:47</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</application>
+        <file_path/>
+        <instance_id>dfb84d08fb3302d40c92f633beefdc43</instance_id>
+        <instance_name>dev282224</instance_name>
+        <name>sp_container_71b353e7c38f6210f23870edd40131bb</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>EMP homepage - Container 2</name><order>2</order><semantic_tag/><sp_page display_value="emp_homepage">8e540f67c34f6210f23870edd401315a</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-08-05 12:22:06</sys_created_on><sys_id>71b353e7c38f6210f23870edd40131bb</sys_id><sys_mod_count>5</sys_mod_count><sys_name>EMP homepage - Container 2</sys_name><sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package><sys_policy/><sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope><sys_update_name>sp_container_71b353e7c38f6210f23870edd40131bb</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-08-05 12:22:47</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>272461092</payload_hash>
+        <record_name>EMP homepage - Container 2</record_name>
+        <reverted_from/>
+        <source>2b9c1edfc3872210f23870edd4013161</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 12:22:47</sys_created_on>
+        <sys_id>c4e3572bc38f6210f23870edd4013125</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1987a2f277f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 12:22:47</sys_updated_on>
+        <type>Container</type>
+        <update_guid>4ce3572bb28f62103c5309a8ac34b224</update_guid>
+        <update_guid_history>4ce3572bb28f62103c5309a8ac34b224:272461092,6dd3172b7c8f62102765e2ef9f69ba96:-1971002269,34d3172b5d8f6210b47511d91eba4a4d:80501666,3ec3d32b8b8f6210f676a3da6984c398:2132005601,56c3d32b058f62104588ab9e6611044a:-111457760,f1b353e7e28f6210055cfaaad119aebc:1940046175</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="EMP homepage - Container 2">e1e3532bc38f6210f23870edd40131bd</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-05 12:22:53</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>6e5ed604af3647d6b397ac53c2f84ed1</sys_id>
+        <sys_metadata>71b353e7c38f6210f23870edd40131bb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>EMP homepage - Container 2</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_scope_delete display_value="">03d2837678184bbcbb9f49666ae3c844</sys_scope_delete>
+        <sys_update_name>sp_container_71b353e7c38f6210f23870edd40131bb</sys_update_name>
+        <sys_update_version display_value="sp_container_71b353e7c38f6210f23870edd40131bb">c4e3572bc38f6210f23870edd4013125</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-05 12:22:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
