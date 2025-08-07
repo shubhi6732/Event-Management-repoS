@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>tabs_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Tabs Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  data.event_id = $sp.getParameter("event_id");
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-06 05:59:44</sys_created_on>
+        <sys_id>c3250ff3c303e210f23870edd401311a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Tabs Widget</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sp_widget_c3250ff3c303e210f23870edd401311a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-06 05:59:44</sys_updated_on>
+        <template><![CDATA[<ul class="nav nav-tabs">
+  <li class="nav-item" ng-class="{active: tab === 'tasks'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'tasks'">Tasks</a>
+  </li>
+  <li class="nav-item" ng-class="{active: tab === 'attendees'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'attendees'">Attendees</a>
+  </li>
+  <li class="nav-item" ng-class="{active: tab === 'vendors'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'vendors'">Vendors</a>
+  </li>
+  <li class="nav-item" ng-class="{active: tab === 'budget'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'budget'">Budget</a>
+  </li>
+  <li class="nav-item" ng-class="{active: tab === 'schedule'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'schedule'">Schedule</a>
+  </li>
+  <li class="nav-item" ng-class="{active: tab === 'feedback'}">
+    <a class="nav-link" href="javascript:void(0)" ng-click="tab = 'feedback'">Feedback</a>
+  </li>
+</ul>
+
+<div ng-switch="tab">
+  <div ng-switch-when="tasks">
+    <sp-widget widget="widget-tasks-list" input="eventId: data.event_id"></sp-widget>
+  </div>
+  <div ng-switch-when="attendees">
+    <sp-widget widget="widget-attendee-list" input="eventId: data.event_id"></sp-widget>
+  </div>
+  <div ng-switch-when="vendors">
+    <sp-widget widget="widget-vendor-list" input="eventId: data.event_id"></sp-widget>
+  </div>
+  <div ng-switch-when="budget">
+    <sp-widget widget="widget-budget-info" input="eventId: data.event_id"></sp-widget>
+  </div>
+  <div ng-switch-when="schedule">
+    <sp-widget widget="widget-schedule-info" input="eventId: data.event_id"></sp-widget>
+  </div>
+  <div ng-switch-when="feedback">
+    <sp-widget widget="widget-feedback-list" input="eventId: data.event_id"></sp-widget>
+  </div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>

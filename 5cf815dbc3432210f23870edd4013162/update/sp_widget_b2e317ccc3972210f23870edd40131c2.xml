@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+  $scope.createEvent = function() {
+    window.location.href = '/sp?id=record_producer&rp=5a1d9a13c3c72210f23870edd4013113';
+  };
+  $scope.assignTask = function() {
+    window.location.href = '/sp?id=record_producer&rp=68b1e217c3c72210f23870edd4013155';
+  };
+  $scope.registerAttendee = function() {
+    window.location.href = '/sp?id=record_producer&rp=791ff25bc34b2210f23870edd40131da';
+  };
+  $scope.submitFeedback = function() {
+    window.location.href = '/sp?id=record_producer&rp=1d72839fc34b2210f23870edd4013129';
+  };
+  $scope.requestVenue = function() {
+    window.location.href = '/sp?id=record_producer&rp=cc764f93c38b2210f23870edd40131e1';
+  };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.dashboard-header { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #003366; color: white; }
+.nav-menu a { color: white; margin: 0 10px; text-decoration: none; }
+.profile-dropdown { position: relative; }
+.profile-dropdown ul { display: none; position: absolute; background: white; color: black; right: 0; list-style: none; padding: 10px; }
+.profile-dropdown:hover ul { display: block; }
+.dashboard-main { padding: 20px; }
+.widget { background: #f0f0f0; padding: 15px; margin: 20px 0; border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px; border: 1px solid #ccc; text-align: left; }
+.quick-actions button { margin-right: 10px; padding: 10px 15px; }
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>event_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Event Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  data.upcomingEvents = [];
+  var gr = new GlideRecord('x_1791009_event_ma_event_record');
+  gr.addQuery('event_date', '>=', gs.nowDateTime());
+  gr.orderBy('event_date');
+  gr.setLimit(5);
+  gr.query();
+  while (gr.next()) {
+    data.upcomingEvents.push({
+      name: gr.getValue('event_name'),
+      date: gr.getDisplayValue('event_date'),
+      location: gr.getValue('location'),
+      status: gr.getDisplayValue('status')
+    });
+  }
+
+  // Add similar logic for tasks and notifications
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-08-07 01:39:57</sys_created_on>
+        <sys_id>b2e317ccc3972210f23870edd40131c2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Event Widget</sys_name>
+        <sys_package display_value="Event Management &amp;amp; Planning System" source="x_1791009_event_ma">5cf815dbc3432210f23870edd4013162</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Event Management &amp;amp; Planning System">5cf815dbc3432210f23870edd4013162</sys_scope>
+        <sys_update_name>sp_widget_b2e317ccc3972210f23870edd40131c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-08-07 01:41:45</sys_updated_on>
+        <template><![CDATA[<!-- DASHBOARD PAGE HTML TEMPLATE -->
+
+<!-- 1. HEADER SECTION -->
+<header class="dashboard-header">
+  <div class="logo">EventPlannerPro</div>
+  <nav class="nav-menu">
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">Tasks</a>
+    <a href="#">Attendees</a>
+    <a href="#">Feedback</a>
+    <a href="#">Venues</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </nav>
+  <div class="profile-dropdown">
+    <button>User ▾</button>
+    <ul>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- 2. MAIN DASHBOARD SECTION -->
+<main class="dashboard-main">
+  <!-- Quick Actions -->
+  <section class="quick-actions">
+    <button onclick="createEvent()">+ Create Event</button>
+    <button onclick="assignTask()">+ Assign Task</button>
+    <button onclick="registerAttendee()">+ Register Attendee</button>
+    <button onclick="submitFeedback()">+ Submit Feedback</button>
+    <button onclick="requestVenue()">+ Request Venue</button>
+  </section>
+
+  <!-- Upcoming Events Widget -->
+  <section class="widget">
+    <h2>Upcoming Events</h2>
+    <table>
+      <thead>
+        <tr><th>Event Name</th><th>Date</th><th>Location</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="event-list"></tbody>
+    </table>
+  </section>
+
+  <!-- Pending Tasks Widget -->
+  <section class="widget">
+    <h2>Pending Tasks</h2>
+    <table>
+      <thead>
+        <tr><th>Task Name</th><th>Event</th><th>Assigned To</th><th>Due Date</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="task-list"></tbody>
+    </table>
+  </section>
+
+  <!-- Notifications Widget -->
+  <section class="widget">
+    <h2>Notifications</h2>
+    <table>
+      <thead>
+        <tr><th>Notification</th><th>Date</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="notification-list"></tbody>
+    </table>
+  </section>
+</main>
+
+
+
+]]></template>
+    </sp_widget>
+</record_update>
